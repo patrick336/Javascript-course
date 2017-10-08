@@ -7,7 +7,7 @@ server.on('request', function (request, response) {
 
   response.setHeader("Content-Type", "text/html; charset=utf-8;");
 
-    if (!request.method === 'GET' && request.url === '/') {
+    if (request.method === 'GET' && request.url === '/') {
       fs.readFile('./tekst.txt','utf-8',function(err,data){
 
         if (err) throw err;
