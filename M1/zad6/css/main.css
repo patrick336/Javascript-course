@@ -1,0 +1,15 @@
+body {
+  height: 100vh;
+  background: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-wrapper {
+  width: 400px;
+}
+
+img {
+  max-height: 400px;
+}
