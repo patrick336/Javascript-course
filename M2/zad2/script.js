@@ -1,6 +1,6 @@
 var movies = [
   {
-    movie_id: 1,
+    id: 1,
     title: 'Harry Potter',
     desc: 'film o czarodzieju',
     img: {
@@ -9,7 +9,7 @@ var movies = [
     }
   },
   {
-    movie_id: 2,
+    id: 2,
     title: 'Król Lew',
     desc: 'Film o królu sawanny',
     img: {
@@ -18,7 +18,7 @@ var movies = [
     }
   },
   {
-    movie_id: 3,
+    id: 3,
     title: 'Matrix',
     desc: 'Haker komputerowy Neo dowiaduje się od tajemniczych rebeliantów, że świat, w którym żyje, jest tylko obrazem przesyłanym do jego mózgu przez roboty.',
     img: {
@@ -27,7 +27,7 @@ var movies = [
     }
   },
   {
-    movie_id: 4,
+    id: 4,
     title: 'Uprowadzona',
     desc: 'Bryan, były agent służb specjalnych, rusza do Paryża, by ratować swoją 17-letnią córkę porwaną przez gang handlujący kobietami.',
     img: {
@@ -37,98 +37,69 @@ var movies = [
   }
 ];
 
+var MoviesList = React.createClass({
 
-
-
-// var GalleryItem = React.createClass({
-//
-//   propTypes: {
-//     image: React.PropTypes.object.isRequired,
-//   },
-//
-//
-//   render: function() {
-//     return (
-//       React.createElement('div', {},
-//         React.createElement('h2', {}, this.props.image.name),
-//         React.createElement('img', {src: this.props.image.src})
-//       )
-//     )
-//   },
-// });
-
-// var image = {
-//   name: 'Kotek',
-//   src: 'http://imgur.com/n8OYCzR.png'
-// };
-
-// var element = React.createElement(GalleryItem, { image: image });
-// ReactDOM.render(element, document.getElementById('app'));
-
-
-
-
-var Movie =  React.createClass({
   PropTypes: {
-    key: React.PropTypes.number.isRequired,
-    title: React.PropTypes.string.isRequired,
-    desc: React.PropTypes.string.isRequired,
-    image: 
+    items: React.PropTypes.array.isRequired
+  },
+  render: function() {
+    var movieItems = this.props.items.map(function(movie){
+      return React.createElement(Movie, {item: movie, key:  movie.id });
+    });
+
+    return (
+      React.createElement('ul', { className: 'movies-list' }, movieItems)
+    );
+  }
+});
+
+var Movie = React.createClass({
+
+  propTypes: {
+    item: React.PropTypes.object.isRequired
   },
   render: function() {
     return (
-
-    )
+      React.createElement('li', {},
+        React.createElement('img', {
+          
+        }),
+        React.createElement(MovieTitle, {}),
+        React.createElement(MovieDescription, {})
+      )
+    );
   }
 });
 
 var MovieTitle = React.createClass({
+
+  PropTypes: {
+    title: React.PropTypes.string.isRequired
+  },
   render: function() {
     return (
-
-    )
+      React.createElement('h2', {},this.props.title)
+    );
   }
 });
 
 var MovieDescription = React.createClass({
+
+  PropTypes: {
+    desc: React.PropTypes.string.isRequired
+  },
   render: function() {
     return (
-
+      React.createElement('p', {},this.props.desc)
     )
   }
 });
 
-var MoviesList = React.createClass({
-  render: function() {
-    return (
 
-    )
-  }
-});
+var element =
+  React.createElement('div', {className: 'app'},
+    React.createElement('h1', {}, 'Lista filmów'),
+    React.createElement(MoviesList, {})
+  );
 
-var element = React.createElement(Movie, {
-  key: movie_id,
-  title:
-});
 ReactDOM.render(element, document.getElementById('app'));
-
-
-
-// var moviesElements = movies.map(function(movie){
-//   return React.createElement('li', {key: movie.id},
-//     React.createElement('img', {
-//       src: movie.img.src,
-//       alt: movie.img.alt
-//     }),
-//     React.createElement('h2', {}, movie.title),
-//     React.createElement('p', {}, movie.desc)
-//   );
-// });
-
-// var element =
-  // React.createElement('div', {},
-    // React.createElement('h1', {}, 'Lista filmów'),
-    // React.createElement('ul', {}, moviesElements)
-  // );
-
-// ReactDOM.render(element, document.getElementById('app'));

@@ -1,6 +1,6 @@
 var Contacts = React.createClass({
     propTypes: {
-      items: React.PropTypes.array.isRequired,
+      items: React.PropTypes.array.isRequired
     },
 
     render: function() {
