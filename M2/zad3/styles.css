@@ -1,0 +1,45 @@
+body {
+  background: #212529;
+  color: #fff;
+}
+body > h1 {
+  margin: 50px 0 0;
+}
+
+.contactForm {
+  box-shadow:inset  0 0 0 7px rgba(255,255,255, .9);
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 40px;
+}
+.contactForm .form-control {
+  margin-bottom: 35px;
+}
+.contactForm .btn-primary {
+  display: block;
+  margin: 0 auto;
+}
+.contactsList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contactItem {
+  padding: 40px 20px;
+  flex-grow: 1;
+  border: 1px solid #0056b3;
+  text-align: center;
+}
+.contactItem .contactLabel {
+  font-size: 26px;
+}
+
+.contactItem .contactEmail {
+  font-size: 42px;
+}
+.contactItem .contactImage {
+  display: block;
+  margin: 0 auto 20px;
+}

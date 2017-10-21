@@ -7,8 +7,8 @@ var Contact = React.createClass({
     return (
       React.createElement('div', {className: 'contactItem'},
         React.createElement('img', {
-          className: 'contactImage',
-          src: 'http://icons.veryicon.com/ico/System/100%20Flat%20Vol.%202/contacts.ico'
+          className: 'contactImage img-responsive',
+          src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9pXtTYRK1QP9pfEhmQd2JsdL3I7yENp5IOGI934vijUIOJD2P'
         }),
         React.createElement('p', {className: 'contactLabel'}, 'Imię: ' + this.props.item.firstName),
         React.createElement('p', {className: 'contactLabel'}, 'Nazwisko: ' + this.props.item.lastName),
@@ -17,5 +17,5 @@ var Contact = React.createClass({
         )
       )
     )
-  },
+  }
 });
