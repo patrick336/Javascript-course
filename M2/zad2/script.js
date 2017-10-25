@@ -44,7 +44,7 @@ var MoviesList = React.createClass({
   },
   render: function() {
     var movieItems = this.props.items.map(function(movie){
-      return React.createElement(Movie, {item: movie, key:  movie.id });
+      return React.createElement(Movie, { item: movie, key: movie.id });
     });
 
     return (
@@ -62,10 +62,12 @@ var Movie = React.createClass({
     return (
       React.createElement('li', {},
         React.createElement('img', {
-          
+          className: 'image',
+          src: this.props.item.img.src,
+          alt: this.props.item.img.alt
         }),
-        React.createElement(MovieTitle, {}),
-        React.createElement(MovieDescription, {})
+        React.createElement(MovieTitle, { className: 'title', title: this.props.item.title}),
+        React.createElement(MovieDescription, {className: 'desc' , desc: this.props.item.desc})
       )
     );
   }
@@ -78,7 +80,7 @@ var MovieTitle = React.createClass({
   },
   render: function() {
     return (
-      React.createElement('h2', {},this.props.title)
+      React.createElement('h2', { className: 'headers' }, this.props.title)
     );
   }
 });
@@ -90,16 +92,15 @@ var MovieDescription = React.createClass({
   },
   render: function() {
     return (
-      React.createElement('p', {},this.props.desc)
-    )
+      React.createElement('p', { className: 'paragraph' },this.props.desc)
+    );
   }
 });
 
-
 var element =
   React.createElement('div', {className: 'app'},
-    React.createElement('h1', {}, 'Lista filmów'),
-    React.createElement(MoviesList, {})
-  );
+  React.createElement('h1', {}, 'Lista filmów'),
+  React.createElement(MoviesList, { items: movies })
+);
 
 ReactDOM.render(element, document.getElementById('app'));
