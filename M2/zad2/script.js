@@ -84,6 +84,7 @@ var Movie = React.createClass({
 });
 
 var Picture = React.createClass({
+
   propTypes: {
     images: React.PropTypes.object.isRequired
   },
