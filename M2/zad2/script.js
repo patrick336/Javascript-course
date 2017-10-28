@@ -128,8 +128,8 @@ var MovieDescription = React.createClass({
 });
 
 var element = React.createElement('div', {
-  className: 'app'
-},
+    className: 'app'
+  },
   React.createElement('h1', {}, 'Lista filmów'),
   React.createElement(MoviesList, {
     items: movies
