@@ -1,0 +1,28 @@
+{
+  "name": "Timers",
+  "version": "1.0.0",
+  "description": "Timers",
+  "main": "App.js",
+  "scripts": {
+    "start": "babel script.js --out-file App.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kalinowski Patryk",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "jquery": "^3.2.1"
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "babel-standalone": "^6.26.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}
