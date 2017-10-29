@@ -4,7 +4,7 @@
   "description": "Timers",
   "main": "App.js",
   "scripts": {
-    "start": "babel script.js --out-file App.js",
+    "start": "babel script.js --out-file script-compiled.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kalinowski Patryk",

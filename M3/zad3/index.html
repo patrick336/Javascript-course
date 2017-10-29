@@ -2,16 +2,24 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>ES6 - timers</title>
+    <title>Timer!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <div id="app"></div>
-      <!-- <script type="text/javascript" src="node_modules/babel-polyfill/dist/polyfill.js"></script> -->
-      <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
-      <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
-      <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
-      <script type="text/babel" src="App.js"></script>
+    <div class="wrapper">
+      <div>
+        <nav class="controls">
+          <a href="#" class="btn btn-lg btn-success" id="js-start">Start</a>
+          <a href="#" class="btn btn-lg btn-danger" id="js-stop">Stop</a>
+          <a href="#" class="btn btn-lg btn-primary" id="js-save">Save</a>
+          <a href="#" class="btn btn-lg btn-info" id="js-reset">Reset</a>
+          <a href="#" class="btn btn-lg btn-warning" id="js-delete">Delete results</a>
+        </nav>
+        <div class="stopwatch"></div>
+      </div>
+      <ol class="list-order results"></ol>
+    </div>
+    <script type="text/javascript" src="script-compiled.js"></script>
   </body>
 </html>
