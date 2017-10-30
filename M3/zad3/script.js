@@ -36,9 +36,9 @@ class Stopwatch {
     this.print();
   }
   calculate () {
-    this.times.miliseconds +=1;
-    if(this.times.miliseconds>=100){
-      this.times.seconds +=1;
+    this.times.miliseconds += 1;
+    if(this.times.miliseconds >= 100){
+      this.times.seconds += 1;
       this.times.miliseconds = 0;
     }
     if(this.times.seconds >= 60) {
@@ -78,16 +78,16 @@ class Stopwatch {
 const stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
 
 const starButton = document.getElementById('js-start');
-starButton.addEventListener('click', ()=> stopwatch.start());
+starButton.addEventListener('click', () => stopwatch.start());
 
 const stopButton = document.getElementById('js-stop');
-stopButton.addEventListener('click', ()=> stopwatch.stop());
+stopButton.addEventListener('click', () => stopwatch.stop());
 
 const saveButton = document.getElementById('js-save');
-saveButton.addEventListener('click', ()=> stopwatch.save());
+saveButton.addEventListener('click', () => stopwatch.save());
 
 const deleteButton = document.getElementById('js-delete');
-deleteButton.addEventListener('click', ()=> stopwatch.deleteTimes());
+deleteButton.addEventListener('click', () => stopwatch.deleteTimes());
 
 const resetButton = document.getElementById('js-reset');
-resetButton.addEventListener('click', ()=> stopwatch.resetActualTimer());
+resetButton.addEventListener('click', () => stopwatch.resetActualTimer());
