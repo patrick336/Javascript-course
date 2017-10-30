@@ -1,0 +1,26 @@
+body {
+  font-size: 72px;
+  background: #313131;
+  color: #fff;
+  text-align: center;
+
+}
+.wrapper {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+.btn-lg {
+  font-size: 32px;
+  min-width: 100px;
+}
+.results {
+  margin-left: 5%;
+  font-size: 24px;
+  padding-left: 35px;
+  max-height: 400px;
+  overflow: auto;
+  min-width: 220px;
+}
