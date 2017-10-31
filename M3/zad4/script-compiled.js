@@ -17,8 +17,8 @@ var Stopwatch = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Stopwatch.__proto__ || Object.getPrototypeOf(Stopwatch)).call(this, props));
 
     _this.display = display;
-    _this.print(_this.times);
     _this.results = document.querySelector('.results');
+    _this.print(_this.state.times);
 
     //Stan komponentu
     _this.state = {
@@ -59,7 +59,7 @@ var Stopwatch = function (_React$Component) {
   }, {
     key: 'print',
     value: function print() {
-      this.display.innerText = this.format(this.times);
+      this.display.innerText = this.format(this.state.times);
     }
   }, {
     key: 'format',
@@ -71,8 +71,8 @@ var Stopwatch = function (_React$Component) {
     value: function start() {
       var _this2 = this;
 
-      if (!this.running) {
-        this.running = true;
+      if (!this.state, running) {
+        this.state.running = true;
         this.watch = setInterval(function () {
           return _this2.step();
         }, 10);
@@ -81,27 +81,27 @@ var Stopwatch = function (_React$Component) {
   }, {
     key: 'stop',
     value: function stop() {
-      this.running = false;
+      this.state.running = false;
       clearInterval(this.watch);
     }
   }, {
     key: 'step',
     value: function step() {
-      if (!this.running) return;
+      if (!this.state.running) return;
       this.calculate();
       this.print();
     }
   }, {
     key: 'calculate',
     value: function calculate() {
-      this.times.miliseconds += 1;
-      if (this.times.miliseconds >= 100) {
-        this.times.seconds += 1;
-        this.times.miliseconds = 0;
+      this.state.times.miliseconds += 1;
+      if (this.state.times.miliseconds >= 100) {
+        this.state.times.seconds += 1;
+        this.state.times.miliseconds = 0;
       }
-      if (this.times.seconds >= 60) {
-        this.times.minutes += 1;
-        this.times.seconds = 0;
+      if (this.state.times.seconds >= 60) {
+        this.state.times.minutes += 1;
+        this.state.times.seconds = 0;
       }
     }
   }, {
@@ -116,7 +116,7 @@ var Stopwatch = function (_React$Component) {
   }, {
     key: 'save',
     value: function save() {
-      var time = this.format(this.times);
+      var time = this.format(this.state.times);
       var item = document.createElement('li');
       var itemContent = document.createTextNode(time);
       item.appendChild(itemContent);
@@ -185,5 +185,5 @@ var Stopwatch = function (_React$Component) {
 }(React.Component);
 
 var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
-// const app = React.createElement(Stopwatch, {});
+// const app = React.createElement(Stopwatch, {document.querySelector('.stopwatch')});
 ReactDOM.render(stopwatch, document.getElementById('app'));
