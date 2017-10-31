@@ -18,8 +18,6 @@ var Stopwatch = function (_React$Component) {
 
     _this.display = display;
     _this.results = document.querySelector('.results');
-    _this.print(_this.state.times);
-
     //Stan komponentu
     _this.state = {
       running: false,
@@ -29,6 +27,7 @@ var Stopwatch = function (_React$Component) {
         miliseconds: 0
       }
     };
+    _this.print(_this.state.times);
 
     //Trzymanie kontekstu komponentu
     _this.reset = _this.reset.bind(_this);
@@ -71,7 +70,7 @@ var Stopwatch = function (_React$Component) {
     value: function start() {
       var _this2 = this;
 
-      if (!this.state, running) {
+      if (!this.state.running) {
         this.state.running = true;
         this.watch = setInterval(function () {
           return _this2.step();
