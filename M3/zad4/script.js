@@ -1,8 +1,10 @@
 class Stopwatch extends React.Component {
-  constructor(props,display) {
+
+  constructor(props, display) {
     super(props);
     this.display = display;
     this.results = document.querySelector('.results');
+
     //Stan komponentu
     this.state = {
       running: false,
@@ -12,8 +14,8 @@ class Stopwatch extends React.Component {
         miliseconds: 0
       }
     };
-    this.print(this.state.times);
 
+    this.print(this.state.times);
     //Trzymanie kontekstu komponentu
     this.reset = this.reset.bind(this);
     this.print = this.print.bind(this);
@@ -45,7 +47,7 @@ class Stopwatch extends React.Component {
   start() {
     if(!this.state.running) {
       this.state.running = true;
-      this.watch = setInterval(() => this.step(),10);
+      this.watch = setInterval(() => this.step(), 10);
     }
   }
   stop () {
@@ -111,7 +113,5 @@ class Stopwatch extends React.Component {
     );
   }
 }
-
-let stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
-// const app = React.createElement(Stopwatch, {document.querySelector('.stopwatch')});
+const stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
 ReactDOM.render(stopwatch, document.getElementById('app'));

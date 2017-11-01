@@ -1,0 +1,47 @@
+body {
+  background: #333;
+  color: #fff;
+}
+form {
+  width: 100%;
+  margin: 0 auto 50px;
+}
+form label {
+  text-align: center;
+  display: block;
+  font-size: 26px;
+}
+form .form-control {
+  height: 60px;
+  width: 400px;
+  margin: 0 auto;
+  font-size: 26px;
+}
+.root {
+  margin-top: 50px;
+}
+.users-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.user {
+  width: 33.33%;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.user a {
+  box-shadow: inset 0 0 0 1px #f6f6f6;
+  flex-flow: 1;
+  color: #fff;
+  font-size: 26px;
+  text-align: center;
+  margin-left: 5%;
+}
+.user img {
+  flex-shrink: 0;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}

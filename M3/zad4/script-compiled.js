@@ -18,6 +18,7 @@ var Stopwatch = function (_React$Component) {
 
     _this.display = display;
     _this.results = document.querySelector('.results');
+
     //Stan komponentu
     _this.state = {
       running: false,
@@ -27,7 +28,6 @@ var Stopwatch = function (_React$Component) {
         miliseconds: 0
       }
     };
-    _this.print(_this.state.times);
 
     //Trzymanie kontekstu komponentu
     _this.reset = _this.reset.bind(_this);
@@ -45,6 +45,11 @@ var Stopwatch = function (_React$Component) {
   }
 
   _createClass(Stopwatch, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.print(this.state.times);
+    }
+  }, {
     key: 'reset',
     value: function reset() {
       this.setState({
@@ -184,5 +189,4 @@ var Stopwatch = function (_React$Component) {
 }(React.Component);
 
 var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
-// const app = React.createElement(Stopwatch, {document.querySelector('.stopwatch')});
 ReactDOM.render(stopwatch, document.getElementById('app'));
