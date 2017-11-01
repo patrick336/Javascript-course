@@ -1,7 +1,6 @@
 "use strict";
 
 //Zadanie pierwsze
-
 var name = "John";
 var sourname = "Smith";
 
@@ -25,10 +24,15 @@ var average = function average() {
     args[_key] = arguments[_key];
   }
 
-  var result = 0;
-  args.forEach(function (arg) {
-    return result += arg;
-  });
+  // let result = 0;
+  // args.forEach(arg => result += arg);
+  // return result / args.length;
+
+  //Dla ambitnych...
+  if (args.length === 0) return 'Not given any number to calculate';
+  var result = args.reduce(function (total, num) {
+    return total + num;
+  }, 0);
   return result / args.length;
 };
 
@@ -42,7 +46,7 @@ console.log("\nZadanie czwarte.. \n");
 
 var grades = [1, 5, 5, 5, 4, 3, 3, 2, 1];
 
-console.log(average.apply(undefined, grades));
+//console.log(average(...grades));
 
 //Zadanie piąte
 console.log("\nZadanie piąte.. \n");

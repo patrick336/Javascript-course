@@ -7,7 +7,7 @@ console.log(`${name} ${sourname}`);
 
 //Zadanie drugie
 console.log("\nZadanie drugie.. \n");
-const multiply = (a, b = 1) => { return a*b };
+const multiply = (a, b = 1) => { return a * b };
 
 console.log(multiply(2,5));
 console.log(multiply(2));
@@ -15,9 +15,14 @@ console.log(multiply(2));
 //Zadanie trzecie
 console.log("\nZadanie trzecie.. \n");
 const average = (...args) => {
-  let result = 0;
-  args.forEach(arg => result += arg);
-  return result/args.length;
+  // let result = 0;
+  // args.forEach(arg => result += arg);
+  // return result / args.length;
+
+  //Dla ambitnych...
+  if(args.length === 0) return 'Not given any number to calculate';
+  let result = args.reduce((total, num) => total + num, 0);
+  return result / args.length;
 };
 
 console.log(average()); // NaN
@@ -30,7 +35,7 @@ console.log("\nZadanie czwarte.. \n");
 
 const grades = [1, 5, 5, 5, 4, 3, 3, 2, 1];
 
-console.log(average(...grades));
+//console.log(average(...grades));
 
 //Zadanie piąte
 console.log("\nZadanie piąte.. \n");
