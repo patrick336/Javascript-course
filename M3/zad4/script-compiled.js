@@ -11,15 +11,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Stopwatch = function (_React$Component) {
   _inherits(Stopwatch, _React$Component);
 
-  function Stopwatch(props, display) {
+  function Stopwatch() {
     _classCallCheck(this, Stopwatch);
 
-    var _this = _possibleConstructorReturn(this, (Stopwatch.__proto__ || Object.getPrototypeOf(Stopwatch)).call(this, props));
-
-    _this.display = display;
-    _this.results = document.querySelector('.results');
-
     //Stan komponentu
+    var _this = _possibleConstructorReturn(this, (Stopwatch.__proto__ || Object.getPrototypeOf(Stopwatch)).call(this));
+
     _this.state = {
       running: false,
       times: {
@@ -29,7 +26,9 @@ var Stopwatch = function (_React$Component) {
       }
     };
 
+    //this.print(this.state.times);
     //Trzymanie kontekstu komponentu
+
     _this.reset = _this.reset.bind(_this);
     _this.print = _this.print.bind(_this);
     _this.format = _this.format.bind(_this);
@@ -45,20 +44,17 @@ var Stopwatch = function (_React$Component) {
   }
 
   _createClass(Stopwatch, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.print(this.state.times);
-    }
-  }, {
     key: 'reset',
     value: function reset() {
-      this.setState({
+      this.stop();
+      this.state = {
         times: {
           minutes: 0,
           seconds: 0,
           miliseconds: 0
         }
-      });
+      };
+      this.print();
     }
   }, {
     key: 'print',
@@ -145,6 +141,12 @@ var Stopwatch = function (_React$Component) {
       this.print();
     }
   }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.display = document.querySelector('.stopwatch');
+      this.results = document.querySelector('.results');
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -179,7 +181,11 @@ var Stopwatch = function (_React$Component) {
             'Delete results'
           )
         ),
-        React.createElement('div', { className: 'stopwatch' }),
+        React.createElement(
+          'div',
+          { className: 'stopwatch' },
+          this.format(this.state.times)
+        ),
         React.createElement('ol', { className: 'list-order results' })
       );
     }
@@ -188,5 +194,5 @@ var Stopwatch = function (_React$Component) {
   return Stopwatch;
 }(React.Component);
 
-var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
-ReactDOM.render(stopwatch, document.getElementById('app'));
+var stopwatch = new Stopwatch();
+ReactDOM.render(React.createElement(Stopwatch, null), document.getElementById('app'));

@@ -1,9 +1,7 @@
 class Stopwatch extends React.Component {
 
-  constructor(props, display) {
-    super(props);
-    this.display = display;
-    this.results = document.querySelector('.results');
+  constructor() {
+    super();
 
     //Stan komponentu
     this.state = {
@@ -15,8 +13,9 @@ class Stopwatch extends React.Component {
       }
     };
 
-    this.print(this.state.times);
+    //this.print(this.state.times);
     //Trzymanie kontekstu komponentu
+
     this.reset = this.reset.bind(this);
     this.print = this.print.bind(this);
     this.format = this.format.bind(this);
@@ -30,13 +29,15 @@ class Stopwatch extends React.Component {
     this.resetActualTimer = this.resetActualTimer.bind(this);
   }
   reset() {
-    this.setState({
+    this.stop();
+    this.state = {
       times: {
         minutes: 0,
         seconds: 0,
         miliseconds: 0
       }
-    });
+    };
+    this.print();
   }
   print() {
     this.display.innerText = this.format(this.state.times);
@@ -97,6 +98,10 @@ class Stopwatch extends React.Component {
     this.reset();
     this.print();
   }
+  componentDidMount () {
+    this.display = document.querySelector('.stopwatch');
+    this.results = document.querySelector('.results');
+  }
   render() {
     return (
       <div className={'app'}>
@@ -107,11 +112,11 @@ class Stopwatch extends React.Component {
           <button className={'btn btn-lg btn-info'} onClick={this.reset}>Reset</button>
           <button className={'btn btn-lg btn-warning'} onClick={this.deleteTimes}>Delete results</button>
         </nav>
-        <div className={'stopwatch'}></div>
+        <div className={'stopwatch'}>{ this.format(this.state.times) }</div>
         <ol className={'list-order results'}></ol>
       </div>
     );
   }
 }
-const stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
-ReactDOM.render(stopwatch, document.getElementById('app'));
+const stopwatch = new Stopwatch();
+ReactDOM.render(<Stopwatch />, document.getElementById('app'));
