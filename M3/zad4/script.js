@@ -3,7 +3,7 @@ class Stopwatch extends React.Component {
   constructor() {
     super();
 
-    //Stan komponentu
+    //Początkowy stan komponentu
     this.state = {
       running: false,
       times: {
@@ -13,9 +13,7 @@ class Stopwatch extends React.Component {
       }
     };
 
-    //this.print(this.state.times);
     //Trzymanie kontekstu komponentu
-
     this.reset = this.reset.bind(this);
     this.print = this.print.bind(this);
     this.format = this.format.bind(this);
@@ -94,9 +92,7 @@ class Stopwatch extends React.Component {
     }
   }
   resetActualTimer() {
-    this.stop();
     this.reset();
-    this.print();
   }
   componentDidMount () {
     this.display = document.querySelector('.stopwatch');
@@ -118,5 +114,4 @@ class Stopwatch extends React.Component {
     );
   }
 }
-const stopwatch = new Stopwatch();
-ReactDOM.render(<Stopwatch />, document.getElementById('app'));
+ReactDOM.render(<Stopwatch /, document.getElementById('app'));
