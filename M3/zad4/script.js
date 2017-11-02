@@ -114,4 +114,4 @@ class Stopwatch extends React.Component {
     );
   }
 }
-ReactDOM.render(<Stopwatch /, document.getElementById('app'));
+ReactDOM.render(<Stopwatch />, document.getElementById('app'));
