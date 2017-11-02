@@ -37,7 +37,6 @@ var Stopwatch = function (_React$Component) {
     _this.pad0 = _this.pad0.bind(_this);
     _this.save = _this.save.bind(_this);
     _this.deleteTimes = _this.deleteTimes.bind(_this);
-    _this.resetActualTimer = _this.resetActualTimer.bind(_this);
     return _this;
   }
 
@@ -130,11 +129,6 @@ var Stopwatch = function (_React$Component) {
           this.results.removeChild(this.results.firstChild);
         }
       }
-    }
-  }, {
-    key: 'resetActualTimer',
-    value: function resetActualTimer() {
-      this.reset();
     }
   }, {
     key: 'componentDidMount',

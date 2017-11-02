@@ -13,6 +13,7 @@ body {
   width: 100%;
 }
 .btn-lg {
+  margin-right: 20px;
   font-size: 32px;
   min-width: 100px;
 }

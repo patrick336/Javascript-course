@@ -24,7 +24,6 @@ class Stopwatch extends React.Component {
     this.pad0 = this.pad0.bind(this);
     this.save = this.save.bind(this);
     this.deleteTimes = this.deleteTimes.bind(this);
-    this.resetActualTimer = this.resetActualTimer.bind(this);
   }
   reset() {
     this.stop();
@@ -90,9 +89,6 @@ class Stopwatch extends React.Component {
         this.results.removeChild(this.results.firstChild);
       }
     }
-  }
-  resetActualTimer() {
-    this.reset();
   }
   componentDidMount () {
     this.display = document.querySelector('.stopwatch');
