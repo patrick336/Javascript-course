@@ -1,7 +1,5 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
-const prettify = require('gulp-jsbeautifier');
-const format = require('gulp-format');
 
 const config = {
   srcScss: './src/scss/main.scss',
@@ -12,12 +10,12 @@ const config = {
   buildJs: './dest/js',
   srcHtml: './*html'
 }
-
-gulp.task('prettify', function() {
-  gulp.src('./components/*.js')
-  .pipe(prettify())
-  .pipe(gulp.dest('./components/'));
-});
+// 
+// gulp.task('prettify', function() {
+//   gulp.src('./components/*.js')
+//   .pipe(prettify())
+//   .pipe(gulp.dest('./components/'));
+// });
 
 gulp.task('sync', function() {
   browserSync.init({

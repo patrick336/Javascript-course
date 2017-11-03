@@ -28,7 +28,9 @@ App = React.createClass({
     xhr.open('GET', url);
     xhr.onload = function(){
       if(xhr.status === 200) {
+        console.log("xhr.responseText" , xhr.responseText);
         var data = JSON.parse(xhr.responseText).data;
+        console.log(data);
         var gif = {
           url : data.fixed_width_downsampled_url,
           sourceUrl: data.url
@@ -36,7 +38,7 @@ App = React.createClass({
         callback(gif);
       }
     };
-    xhr.send();
+    xhr.send()
   },
 
   render: function () {
@@ -62,7 +64,6 @@ App = React.createClass({
     );
   }
 });
-
 
 var app = React.createElement(App);
 ReactDOM.render(app, document.getElementById('app'));
