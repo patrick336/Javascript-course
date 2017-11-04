@@ -22,23 +22,42 @@ App = React.createClass({
       });
     }.bind(this));
   },
-  getGif: function(searchText, callback) {
+  getGif: function(searchText) {
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('GET', url);
+    // xhr.onload = function(){
+    //   if(xhr.status === 200) {
+    //     console.log("xhr.responseText" , xhr.responseText);
+    //     var data = JSON.parse(xhr.responseText).data;
+    //     console.log(data.type);
+    //     var gif = {
+    //       url : data.fixed_width_downsampled_url,
+    //       sourceUrl: data.url
+    //     };
+    //     callback(gif);
+    //   }
+    // };
+    // xhr.send()
+
     var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchText;
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
-    xhr.onload = function(){
-      if(xhr.status === 200) {
-        console.log("xhr.responseText" , xhr.responseText);
-        var data = JSON.parse(xhr.responseText).data;
-        console.log(data);
-        var gif = {
-          url : data.fixed_width_downsampled_url,
-          sourceUrl: data.url
-        };
-        callback(gif);
-      }
-    };
-    xhr.send()
+    return new Promise(
+       function (resolve, reject) {
+           const request = new XMLHttpRequest();
+           request.onload = function () {
+               if (this.status === 200) {
+                    console.log(this.response.fixed_width_downsampled_url);
+                   resolve(this.response); // Sukces
+               } else {
+                   reject(new Error(this.statusText)); // Dostaliśmy odpowiedź, ale jest to np 404
+               }
+           };
+           request.onerror = function () {
+               reject(new Error(
+                  `XMLHttpRequest Error: ${this.statusText}`));
+           };
+           request.open('GET', url);
+           request.send();
+       });
   },
 
   render: function () {

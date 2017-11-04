@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
     "gulp-jsbeautifier": "^2.1.1"
