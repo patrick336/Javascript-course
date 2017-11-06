@@ -1,16 +1,20 @@
 var GIPHY_API_URL = 'http://api.giphy.com';
 var GIPHY_PUB_KEY = 'urHOxQPVxu8nN1UXPJPpcXo6f975O4ry';
 
-App = React.createClass({
+class App extends React.Component {
+  constructor(){
+    super();
 
-  getInitialState() {
-    return {
-        loading: false,
-        searchingText: '',
-        gif: {}
+    this.state = {
+      loading: false,
+      searchingText: '',
+      gif: {}
     };
-  },
-  handleSearch: function(searchingText) {
+    this.handleSearch = this.handleSearch.bind(this);
+    this.getGif = this.getGif.bind(this);
+  }
+
+  handleSearch(searchingText) {
     this.setState({
       loading: true
     });
@@ -21,46 +25,28 @@ App = React.createClass({
         searchingText: searchingText
       });
     }.bind(this));
-  },
-  getGif: function(searchText) {
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('GET', url);
-    // xhr.onload = function(){
-    //   if(xhr.status === 200) {
-    //     console.log("xhr.responseText" , xhr.responseText);
-    //     var data = JSON.parse(xhr.responseText).data;
-    //     console.log(data.type);
-    //     var gif = {
-    //       url : data.fixed_width_downsampled_url,
-    //       sourceUrl: data.url
-    //     };
-    //     callback(gif);
-    //   }
-    // };
-    // xhr.send()
+  }
 
+  getGif(searchText, callback) {
     var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchText;
-    return new Promise(
-       function (resolve, reject) {
-           const request = new XMLHttpRequest();
-           request.onload = function () {
-               if (this.status === 200) {
-                    console.log(this.response.fixed_width_downsampled_url);
-                   resolve(this.response); // Sukces
-               } else {
-                   reject(new Error(this.statusText)); // Dostaliśmy odpowiedź, ale jest to np 404
-               }
-           };
-           request.onerror = function () {
-               reject(new Error(
-                  `XMLHttpRequest Error: ${this.statusText}`));
-           };
-           request.open('GET', url);
-           request.send();
-       });
-  },
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.onload = function(){
+      if(xhr.status === 200) {
+        console.log("xhr.responseText" , xhr.responseText);
+        var data = JSON.parse(xhr.responseText).data;
+        console.log(data.type);
+        var gif = {
+          url : data.fixed_width_downsampled_url,
+          sourceUrl: data.url
+        };
+        callback(gif);
+      }
+    };
+    xhr.send()
 
-  render: function () {
+  }
+  render () {
     var styles = {
       margin: '0 auto',
       textAlign: 'center',
@@ -82,7 +68,6 @@ App = React.createClass({
       </div>
     );
   }
-});
+}
 
-var app = React.createElement(App);
-ReactDOM.render(app, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
