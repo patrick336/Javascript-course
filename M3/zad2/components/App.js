@@ -16,26 +16,26 @@ App = React.createClass({
     });
 
     this.getGif(searchingText)
-    .then(response => {
-      this.setState({
-        loading: false,
-        gif: {
-          url : response.fixed_width_downsampled_url,
-          sourceUrl: response.url
-        },
-        searchingText: searchingText
-      });
-    })
-    .catch(error => console.error('Something went wrong', error));
+      .then(response => {
+        this.setState({
+          loading: false,
+          gif: {
+            url: response.fixed_width_downsampled_url,
+            sourceUrl: response.url
+          },
+          searchingText: searchingText
+        });
+      })
+      .catch(error => console.error('Something went wrong', error));
   },
   getGif: function(searchText) {
     var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchText;
 
     return new Promise(
-      function (resolve, reject) {
+      function(resolve, reject) {
         let request = new XMLHttpRequest();
 
-        request.onload = function () {
+        request.onload = function() {
           if (this.status === 200) {
             let data = JSON.parse(this.response).data; //parsowanie odpowiedzi serwera
             resolve(data); // Sukces
@@ -43,7 +43,7 @@ App = React.createClass({
             reject(new Error(this.statusText)); // Dostaliśmy odpowiedź, ale jest to np 404
           }
         };
-        request.onerror = function () {
+        request.onerror = function() {
           reject(new Error(`XMLHttpRequest Error: ${this.statusText}`));
         };
         request.open('GET', url);
@@ -51,7 +51,7 @@ App = React.createClass({
       }
     );
   },
-  render: function () {
+  render: function() {
     var styles = {
       margin: '0 auto',
       textAlign: 'center',
@@ -60,16 +60,16 @@ App = React.createClass({
 
     return (
       <div className={styles}>
-      <h1> Wyszukiwarka gifów</h1>
-      <p>
-      Znajdź gifa na <a href={'http://giphy.com'} >Naciskaj ENTER, aby pobrać kolejne gify </a>
-      </p>
-      <Search onSearch={this.handleSearch} />
-      <Gif
-      loading={this.state.loading}
-      url={this.state.gif.url}
-      sourceUrl={this.state.gif.sourceUrl}
-      />
+        <h1> Wyszukiwarka gifów</h1>
+        <p>
+          Znajdź gifa na <a href={'http://giphy.com'} >Naciskaj ENTER, aby pobrać kolejne gify </a>
+        </p>
+        <Search onSearch={this.handleSearch} />
+        <Gif
+          loading={this.state.loading}
+          url={this.state.gif.url}
+          sourceUrl={this.state.gif.sourceUrl}
+        />
       </div>
     );
   }
