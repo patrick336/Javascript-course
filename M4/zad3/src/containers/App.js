@@ -25,7 +25,6 @@ class App extends React.Component {
         };
 
         this.addTodo = this.addTodo.bind(this);
-        this.removeTodo = this.removeTodo.bind(this);
         //this.printCountTasks = this.printCountTasks.bind(this);
     }
     addTodo(val) {
@@ -41,10 +40,11 @@ class App extends React.Component {
         this.setState({data: remainder});
     }
     render() {
+        console.log(this.state.data);
         return (
-            <div className = {style.TodoApp}>
-                <Title data = {this.state.data}/>
-                <TodoList data = {this.state.data} removeTodo = {this.removeTodo} />
+            <div className = {style.TodoApp} >
+                <Title data = {this.state.data} />
+                <TodoList data = {this.state.data} removeTodo = {this.removeTodo.bind(this)} />
             </div>
         );
     }
