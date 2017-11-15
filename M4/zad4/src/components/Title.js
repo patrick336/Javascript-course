@@ -14,8 +14,8 @@ class Title extends React.Component {
     render() {
         return (
             <div className={style.Title}>
-                <h1>Lista do zrobienia</h1>
-                <span>{this.printCountTasks()}</span>
+                <h1>Lista do zrobienia:</h1>
+                <span className={style.TitleSpan}>{this.printCountTasks()}</span>
             </div>
         );
     }

@@ -1,0 +1,11 @@
+.TodoForm {
+    position: absolute;
+    bottom: 0;
+    padding: 30px;
+    background: #f5f5f5;
+    color: #444;
+    font-size: 16px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: -1px -1px 30px rgba(0,0,0,.5);
+}

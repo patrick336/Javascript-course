@@ -1,5 +1,13 @@
 .Title {
-    margin-top: 20px;
+    margin: 50px 0;
     font-size: 36px;
-    color: #333;
+    color: #fff;
+}
+.Title h1  {
+    display: inline-block;
+}
+.TitleSpan {
+    display: inline-block;
+    color: #fff;
+    margin-left: 20px
 }

@@ -25,7 +25,6 @@ class App extends React.Component {
         };
 
         this.addTodo = this.addTodo.bind(this);
-        //this.printCountTasks = this.printCountTasks.bind(this);
     }
     addTodo(val) {
         const todo = {
@@ -45,6 +44,7 @@ class App extends React.Component {
             <div className = {style.TodoApp} >
                 <Title data = {this.state.data} />
                 <TodoList data = {this.state.data} removeTodo = {this.removeTodo.bind(this)} />
+                <button className={'btn btn-primary'} onClick=>Add task..</button>
             </div>
         );
     }

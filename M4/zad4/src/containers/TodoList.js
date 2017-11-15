@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './TodoList.css';
 import PropTypes from 'prop-types';
+import Todo from '../components/Todo';
 
 // @Presentation component
 
@@ -9,7 +10,7 @@ const TodoList = (props) => {
         <ul className = {style.TodoList}>
         {
             props.data.map(item => {
-                return <li key={item.id} onClick={ () => props.removeTodo(item.id)}>{item.text}</li>
+                <Todo id = {item.id} text = {item.text}  removeTodo = {props.removeTodo} />
             })
         }
         </ul>

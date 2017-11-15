@@ -1,12 +1,12 @@
 .TodoApp {
-    background-color: #F5F5F5;
-    color: #222;
+    color: #fff;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    align-content: center;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    background: linear-gradient(120deg, red,blue);
+    position: relative;
 }

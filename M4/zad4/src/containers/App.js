@@ -3,6 +3,7 @@ import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
 import TodoList from '../containers/TodoList';
+import TodoForm from '../components/TodoForm';
 
 // @Container component
 
@@ -20,12 +21,13 @@ class App extends React.Component {
             },
             {
                 id: 3,
+                text: 'wash the dishes'
+            },
+            {
+                id: 4,
                 text: 'feed my cat'
             }]
         };
-
-        this.addTodo = this.addTodo.bind(this);
-        //this.printCountTasks = this.printCountTasks.bind(this);
     }
     addTodo(val) {
         const todo = {
@@ -40,11 +42,11 @@ class App extends React.Component {
         this.setState({data: remainder});
     }
     render() {
-        console.log(this.state.data);
         return (
             <div className = {style.TodoApp} >
                 <Title data = {this.state.data} />
                 <TodoList data = {this.state.data} removeTodo = {this.removeTodo.bind(this)} />
+                <TodoForm data = {this.state.data} addTodo = {this.addTodo.bind(this)}/>
             </div>
         );
     }
