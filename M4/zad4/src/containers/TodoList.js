@@ -8,11 +8,11 @@ import Todo from '../components/Todo';
 const TodoList = (props) => {
     return (
         <ul className = {style.TodoList}>
-        {
-            props.data.map(item => {
-                <Todo id = {item.id} text = {item.text}  removeTodo = {props.removeTodo} />
-            })
-        }
+            {
+                props.data.map(item =>
+                    <Todo key = {item.id} item = {item} removeTodo = { props.removeTodo } />
+                )
+            }
         </ul>
     );
 }

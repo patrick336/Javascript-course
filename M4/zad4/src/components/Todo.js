@@ -6,15 +6,14 @@ import PropTypes from 'prop-types';
 
 const Todo = (props) => {
     return (
-        <li key = {props.id} onClick={() => props.removeTodo(props.id)}>
-            {props.text}
+        <li className = {style.Todo} onClick={() => props.removeTodo(props.item.id)}>
+            {props.item.text}
         </li>
     );
 }
 
 Todo.propTypes = {
-    id: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
+    item: PropTypes.object.isRequired,
     removeTodo: PropTypes.func.isRequired
 }
 

@@ -12,19 +12,19 @@ class App extends React.Component {
         super(props);
         this.state = {
             data: [{
-                id: 1,
+                id: '1',
                 text: 'clean room'
             },
             {
-                id: 2,
+                id: '2',
                 text: 'wash the dishes'
             },
             {
-                id: 3,
+                id: '3',
                 text: 'wash the dishes'
             },
             {
-                id: 4,
+                id: '4',
                 text: 'feed my cat'
             }]
         };
