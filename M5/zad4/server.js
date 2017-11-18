@@ -17,7 +17,6 @@ app.get('/auth/google', function (req, res) {
 var server = app.listen(8080, 'localhost', function() {
     var host = server.address().address;
     var port = server.address().port;
-
     console.log('Application started listening on http://' + host + ':' + port);
 });
 
