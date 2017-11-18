@@ -1,0 +1,17 @@
+section.contact
+    .form-component
+        div
+            h2.form-header Witamy...
+            p.form-desc
+                | Lorem ipsum dolor sit amet enim. Etiam ullamcorper.
+                | Suspendisse a pellentesque dui, non felis.
+                | Maecenas malesuada elit lectus felis, malesuada ultricies.
+        form(action='http://localhost:8080/auth/google', method='GET')
+            .form-group
+                label(for='login') Twój login:
+                input#login.form-control(type='text', name='login', aria-describedby='emailHelp', placeholder='Your email')
+            .form-group
+                label(for='password') Haslo:
+                input#password.form-control(type='password', name='password', placeholder='Password')
+            button.btn.btn-primary(type='submit') Zaloguj się
+            div(style='clear:both;')

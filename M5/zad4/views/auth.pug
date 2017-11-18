@@ -1,0 +1,14 @@
+doctype html
+html
+    include ./head.pug
+    body
+        div
+            if(login)
+                h1 Cześć, #{login}
+                div.text-center
+                |   Logowanie zakończyło się pomyślnie
+            else
+                div.text-center
+                    |   Logowanie zakończyło się niepowodzeniem.
+                    |
+                    a(href="/") Spróbuj ponownie.
