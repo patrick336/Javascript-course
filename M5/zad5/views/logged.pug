@@ -3,4 +3,7 @@ html
     include ./head.pug
     body
         div
-            |   Zalogowany
+            if(user)
+                h3 Cześć, jesteś zalogowany jako #{user.displayName}
+            p
+                |   Od teraz możesz korzystać z naszych usług.
