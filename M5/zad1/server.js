@@ -1,8 +1,6 @@
 var express = require('express');
-var fs = require('fs');
-var bodyParser = require('body-parser');
-
 var app = express();
+var fs = require('fs');
 var stringifyFile = "";
 
 app.use(bodyParser.json());
@@ -31,27 +29,21 @@ app.get('/ab*cd', function(req, res){
 });
 
 app.get('/getNote', function(req, res){
-    fs.readFile('./test.json', 'utf8', function(err, data) {
-        if (err) throw err;
-        stringifyFile = data
+    fs.readFile('./test.json', 'utf-8', function(err, data){
+        if(err) throw err;
+        stringifyFile = data;
         res.send(data);
     });
 });
 
 app.post('/updateNote/:note', function(req, res){
+    stringifyFile += req.params.note;
 
-    fs.readFile('./test.json', 'utf8', function(err, data) {
-        if (err) throw err;
-        var dataObj = JSON.parse(data);
-        dataObj.menu.notes.push(req.params.note);
-        // dataObj.menu.notes = [...dataObj.menu.notes, req.params.note];
-        fs.writeFile('./test.json', JSON.stringify(dataObj, undefined, 2), function(err){
-            if(err) throw err;
-            console.log('file updated');
-        });
+    fs.writeFile('./test.json', stringifyFile, function(err){
+        if(err) throw err;
+        console.log('file updated');
     });
 });
-
 var server = app.listen(3000, function() {
     app.use(function(req, res, next){
         res.status(404).send('Wybacz, nie mogliśmy odnalezc tego, czego zadasz');
