@@ -13,6 +13,7 @@ app.get('/', function(req, res){
 
 app.post('/', function(req, res){
     console.log('Otrzymałem żądanie POST do strony głównej');
+    res.end();
 });
 
 app.delete('/del_user', function(req, res){
@@ -49,6 +50,7 @@ app.post('/updateNote/:note', function(req, res){
             console.log('file updated');
         });
     });
+    res.end();
 });
 
 var server = app.listen(3000, function() {

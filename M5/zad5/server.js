@@ -31,7 +31,7 @@ app.set('views', './views');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
     res.render('main_template', { user: req.user });
 });
 
@@ -40,9 +40,10 @@ app.get('/logged', function(req, res){
 });
 //Passport routes
 app.get('/auth/google',
-passport.authenticate('google', {
-scope : ['profile', 'email']
-}));
+    passport.authenticate('google', {
+        scope : ['profile', 'email']
+    }
+));
 app.get('/auth/google/callback',
     passport.authenticate('google', {
         successRedirect : '/logged',
