@@ -48,9 +48,9 @@ app.post('/updateNote/:note', function(req, res){
         fs.writeFile('./test.json', JSON.stringify(dataObj, undefined, 2), function(err){
             if(err) throw err;
             console.log('file updated');
+            res.end();
         });
     });
-    res.end();
 });
 
 var server = app.listen(3000, function() {
