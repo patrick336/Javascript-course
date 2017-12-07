@@ -8,9 +8,9 @@ var env = process.env.NODE_ENV;
 
 var plugins = [
     new HtmlWebpackPlugin({
-        template: 'src/index.html',
+        template: 'client/index.html',
         filename: 'index.html',
-        inject: 'body',
+        inject: 'body'
     })
 ];
 console.log('NODE_ENV:', env);
@@ -31,7 +31,7 @@ module.exports = {
     ] : []).concat(['./client/index.js']),
     output: {
         filename: './bundle.js',
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, 'public')
     },
     module: {
         rules: [
