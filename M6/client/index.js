@@ -17,21 +17,21 @@ import { AppContainer } from 'react-hot-loader';
 // }
 
 const render = (Component) => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component/>
-    </AppContainer>,
-    document.getElementById('app')
-  );
+    ReactDOM.render(
+        <AppContainer>
+            <Component/>
+        </AppContainer>,
+        document.getElementById('app')
+    );
 };
 
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    const NewApp = require('./containers/App').default;
-    render(NewApp)
-  });
+    module.hot.accept('./containers/App', () => {
+        const NewApp = require('./containers/App').default;
+        render(NewApp)
+    });
 }
 
 const express = require('express');
@@ -78,5 +78,5 @@ io.on('connection', function(socket) {
 });
 
 server.listen(3000, function(){
-  console.log('listening on *:3000');
+    console.log('listening on *:3000');
 });
