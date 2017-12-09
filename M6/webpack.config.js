@@ -8,7 +8,7 @@ var env = process.env.NODE_ENV;
 
 var plugins = [
     new HtmlWebpackPlugin({
-        template: 'client/index.html',
+        template: './client/index.html',
         filename: 'index.html',
         inject: 'body'
     })

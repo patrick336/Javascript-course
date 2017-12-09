@@ -1,3 +1,6 @@
+// Serwis obsługujący użytkowników
+// Zarządzanie użytkownikami korzystającymi w danej chwili z czatu
+
 class UserService {
     constructor(){
         this.users = [];
@@ -13,6 +16,12 @@ class UserService {
     }
     removeUser(userId) {
         this.users = this.user.filter(user => user.id !== userId);
+    }
+    //for debug
+    printusers() {
+        this.users.map((user) => {
+            console.log(user);
+        });
     }
 }
 
