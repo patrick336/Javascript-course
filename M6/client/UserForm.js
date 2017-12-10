@@ -11,7 +11,7 @@ class UserForm extends Component {
         this.props.onUserSubmit(this.state.name);
     }
     handleChange(e) {
-        this.state({ name: e.target.value });
+        this.setState({ name: e.target.value });
     }
     render() {
         return(
@@ -20,7 +20,7 @@ class UserForm extends Component {
                     className = {styles.UserInput}
                     placeholder = 'Write your nickname and press enter'
                     onChange = { e => this.handleChange(e) }
-                    value = "this.state.name"
+                    value = {this.state.name}
                 />
             </form>
         );
