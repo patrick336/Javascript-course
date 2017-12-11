@@ -22,18 +22,16 @@ class App extends Component {
         const messages = [message, ...this.state.messages];
         this.setState({ messages });
     }
-    checkUpdate() {
-        this.setState({ users });
-    }
     chatUpdate(users) {
         this.setState({users});
+        console.log(this.state);
     }
     handleMessageSubmit(message) {
         const messages = [message, ...this.state.messages];
         this.setState({ messages });
         socket.emit('message', message);
     }
-    handleUserSubmit() {
+    handleUserSubmit(name) {
         this.setState({name});
         socket.emit('join', name);
     }
