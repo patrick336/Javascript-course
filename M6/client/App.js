@@ -24,7 +24,6 @@ class App extends Component {
     }
     chatUpdate(users) {
         this.setState({users});
-        console.log(this.state);
     }
     handleMessageSubmit(message) {
         const messages = [message, ...this.state.messages];
