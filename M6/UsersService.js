@@ -5,17 +5,17 @@ class UserService {
     constructor(){
         this.users = [];
     }
-    getAllusers() {
+    getAllUsers() {
         return this.users;
     }
     getUserById(userId) {
         return this.users.find(user => user.id === userId);
     }
     addUser(user) {
-        this.users = [user, ...this.user];
+        this.users = [user, ...this.users];
     }
     removeUser(userId) {
-        this.users = this.user.filter(user => user.id !== userId);
+        this.users = this.users.filter(user => user.id !== userId);
     }
     //for debug
     printusers() {
@@ -25,4 +25,4 @@ class UserService {
     }
 }
 
-module.exports = UsersService;
+module.exports = UserService;

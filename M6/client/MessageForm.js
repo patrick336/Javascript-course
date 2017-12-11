@@ -1,4 +1,6 @@
-class Message extends Component {
+import react, {Component} from "react";
+
+class MessageForm extends Component {
 
     constructor(props) {
         super(props);

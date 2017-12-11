@@ -30,7 +30,7 @@ module.exports = {
         'webpack/hot/only-dev-server',
     ] : []).concat(['./client/index.js']),
     output: {
-        filename: './bundle.js',
+        filename: 'bundle.js',
         path: path.resolve(__dirname, 'public')
     },
     module: {
