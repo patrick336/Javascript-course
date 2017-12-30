@@ -1,4 +1,5 @@
-import react, {Component} from "react";
+import React, {Component} from "react";
+import styles from './MessageForm.css';
 
 class MessageForm extends Component {
 
