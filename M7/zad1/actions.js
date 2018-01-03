@@ -1,5 +1,3 @@
-
-
 const NEW_COMMENT = "NEW_COMMENT";
 const REMOVE_COMMENT = "REMOVE_COMMENT";
 const EDIT_COMMENT = "EDIT_COMMENT";
@@ -67,53 +65,91 @@ let state = {
   users: ["John", "Seb"]
 };
 
-const CommentReducer = (state = {}, action) => {
+const CommentReducer = (comments = [], action) => {
   switch (action.type) {
+
     case NEW_COMMENT:
-      state.comments.push({
+
+      return [].concat(state.comments, [{ 
         id: action.id,
         text: action.text,
         rate: action.rate
-      });
-      return state;
-
+      }]);
+    
     case REMOVE_COMMENT:
-      state.comments = state.comments.filter(item => item.id !== action.id);
-      return state;
+      return comments.filter(item => item.id !== action.id);
 
     case EDIT_COMMENT:
-      state.comments.map((item) => { 
-        if (item.id === action.id) {
-          return (item.text = action.text);
+         
+       return comments.map(item =>  
+        {
+          if(item.id === action.id ) {
+            return Object.assign({}, item, {
+              text: action.text
+            });
+          } 
+          else {
+            return item;
+          }
         }
-      });
-      return state;
+      );
 
     case THUMB_UP_COMMENT:
-      state.comments.map(item => {
-        if(action.id === item.id) {
-           item.rate++;
+    
+      return comments.map(item =>  
+        {
+          if(item.id === action.id ) {
+            return Object.assign({}, item, {
+              rate: item.rate + 1
+            });
+          } 
+          else {
+            return item;
+          }
         }
-      });
-      return state;
+      );
+
     case THUMB_DOWN_COMMENT:
-      state.comments.map(item => {
-        if(action.id === item.id) {
-           item.rate--;
+      return comments.map(item =>  
+        {
+          if(item.id === action.id ) {
+            return Object.assign({}, item, {
+              rate: item.rate - 1
+            });
+          } 
+          else {
+            return item;
+          }
         }
-      });
-      return state;
+      );
+
     default:
-      return state;
+      return comments;
   }
 };
 
-const res1 = CommentReducer(state, newComment("TEST"));
-const res2 = CommentReducer(state, removeComment(2));
-const res3 = CommentReducer(state, editComment(1, "comment changed"));
+const res1 = CommentReducer(state.comments, newComment("TEST"));
+console.log(res1);
 
-const res5 = CommentReducer(state, thumpDown(1));
-const res6 = CommentReducer(state, thumpDown(1));
-const res7 = CommentReducer(state, thumpDown(1));
+const res2 = CommentReducer(res1, removeComment(2));
+console.log(res2);
 
-console.log(state);
+const res3 = CommentReducer(res2, editComment(1, "comment changed"));
+console.log(res3);
+
+const res4 = CommentReducer(res3, thumpUp(1));
+console.log(res4);
+
+const res5 = CommentReducer(res4, thumpDown(1));
+console.log(res5);
+
+const res6 = CommentReducer(res5, thumpDown(1));
+console.log(res6);
+
+const res7 = CommentReducer(res6, 'jakies nieznany typ akcji');
+console.log(res7);
+
+console.log(state);// stan nie został zmutowany - OK
+
+
+
