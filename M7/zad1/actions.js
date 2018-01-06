@@ -47,6 +47,12 @@ const thumpDown = id => {
     id
   };
 };
+// const assignToObject = (collection, id, attrToChange, ...newValue) => {
+
+// };
+// const findObject = (collection, id ) => {
+//   collection.map(item => item.id === id ? Object.assign({}, item, { attrToChange: newValue }) : item );
+// };
 
 //Zakladam, ze istnieje juz jakis stan aplikacji.
 let state = {
@@ -70,58 +76,26 @@ const CommentReducer = (comments = [], action) => {
 
     case NEW_COMMENT:
 
-      return [].concat(state.comments, [{ 
+      return [{ 
         id: action.id,
         text: action.text,
         rate: action.rate
-      }]);
+      },
+        ...comments
+      ];
     
     case REMOVE_COMMENT:
       return comments.filter(item => item.id !== action.id);
 
     case EDIT_COMMENT:
-         
-       return comments.map(item =>  
-        {
-          if(item.id === action.id ) {
-            return Object.assign({}, item, {
-              text: action.text
-            });
-          } 
-          else {
-            return item;
-          }
-        }
-      );
+      //assignToObject();
+      return comments.map(item => item.id === action.id ? Object.assign({}, item, { text: action.text }) : item );  
 
-    case THUMB_UP_COMMENT:
-    
-      return comments.map(item =>  
-        {
-          if(item.id === action.id ) {
-            return Object.assign({}, item, {
-              rate: item.rate + 1
-            });
-          } 
-          else {
-            return item;
-          }
-        }
-      );
+    case THUMB_UP_COMMENT:  
+      return comments.map(item => item.id === action.id ? Object.assign({}, item, { rate: item.rate + 1 }) : item ); 
 
     case THUMB_DOWN_COMMENT:
-      return comments.map(item =>  
-        {
-          if(item.id === action.id ) {
-            return Object.assign({}, item, {
-              rate: item.rate - 1
-            });
-          } 
-          else {
-            return item;
-          }
-        }
-      );
+      return comments.map(item => item.id === action.id ? Object.assign({}, item, { rate: item.rate - 1 }) : item ); 
 
     default:
       return comments;
@@ -130,25 +104,22 @@ const CommentReducer = (comments = [], action) => {
 
 const res1 = CommentReducer(state.comments, newComment("TEST"));
 console.log(res1);
-
+console.log('\n');
 const res2 = CommentReducer(res1, removeComment(2));
 console.log(res2);
-
+console.log('\n');
 const res3 = CommentReducer(res2, editComment(1, "comment changed"));
 console.log(res3);
-
+console.log('\n');
 const res4 = CommentReducer(res3, thumpUp(1));
 console.log(res4);
-
+console.log('\n');
 const res5 = CommentReducer(res4, thumpDown(1));
 console.log(res5);
-
+console.log('\n');
 const res6 = CommentReducer(res5, thumpDown(1));
 console.log(res6);
-
-const res7 = CommentReducer(res6, 'jakies nieznany typ akcji');
-console.log(res7);
-
+console.log('\n');
 console.log(state);// stan nie został zmutowany - OK
 
 

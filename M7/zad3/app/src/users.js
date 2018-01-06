@@ -1,3 +1,5 @@
-function users(state = [], action) {
-    return state;
-}
+const users = (state = [], action) => {
+	return state;
+};
+
+export default users;

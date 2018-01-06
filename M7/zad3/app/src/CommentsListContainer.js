@@ -1,5 +1,7 @@
 // //Funkcja connect sluzy do laczenia komponentów do store
-// Zaczynamy od zaimportowania tajemniczej funkcji connect, która służy do łączenia komponentów do store. Nie modyfikuje przy tym w żaden sposób istniejącego komponentu, a zwraca nowy, rozszerzony o nowe funkcjonalności. Funkcja ta przyjmuje na wejściu cztery parametry, ale nas interesuje póki co tylko pierwszy z nich.
+// Zaczynamy od zaimportowania tajemniczej funkcji connect, która służy do łączenia komponentów do store. 
+//Nie modyfikuje przy tym w żaden sposób istniejącego komponentu, a zwraca nowy, rozszerzony o nowe funkcjonalności. 
+//Funkcja ta przyjmuje na wejściu cztery parametry, ale nas interesuje póki co tylko pierwszy z nich.
 //
 // Argument mapStateToProps zajmuje się (jak sama nazwa wskazuje) mapowaniem odpowiedniej porcji stanu do propsów, które przekażemy komponentowi. mapStateToProps musi być funkcją, która na wejściu przyjmuje stan aplikacji, a na wyjściu zwraca obiekt podpinający konkretne wartości propsów do komponentu CommentsList.
 //

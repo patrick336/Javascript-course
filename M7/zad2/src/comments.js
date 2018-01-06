@@ -49,7 +49,6 @@ export const thumpDown = id => {
   };
 };
 
-
 //Comment Reducer
 export const CommentReducer = (comments = [], action) => {
   switch (action.type) {

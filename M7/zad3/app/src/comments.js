@@ -1,6 +1,6 @@
 import { ADD_COMMENT } from './actions.js';
 
-function comments(state = [], action) {
+const comments = (state = [], action) => {
     switch(action.type) {
         case ADD_COMMENT:
             return [{
@@ -12,4 +12,6 @@ function comments(state = [], action) {
         default:
             return state;
     }
-}
+};
+
+export default comments;

@@ -1,14 +1,11 @@
-const ADD_COMMENT = 'ADD_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
 
-const addComment = text => {
+export const addComment = text => {
     return (
         {
             type: ADD_COMMENT,
-            id: 5,
+            id: 1,
             text: text
         }
     );
-}
-
-export  ADD_COMMENT;
-export  addComment;
+};
